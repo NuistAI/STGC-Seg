@@ -1,0 +1,10 @@
+train_batch_size: 1
+test_batch_size: 1
+max_epochs: 200
+early_stopping_epochs: 200
+learning_rate: 0.0001
+train_dataset_path: /home/Disk3toData/DATAVLM/QaTa-COV19-ori/QaTa-COV19/QaTa-COV19-v2/Train Set
+train_text_path: /home/Disk3toData/DATAVLM/QaTa-COV19-ori/QaTa-COV19/QaTa-COV19-v2/prompt/Train.csv
+test_dataset_path: /home/Disk3toData/DATAVLM/QaTa-COV19-ori/QaTa-COV19/QaTa-COV19-v2/Test Set
+test_text_path: /home/Disk3toData/DATAVLM/QaTa-COV19-ori/QaTa-COV19/QaTa-COV19-v2/prompt/Test.csv
+

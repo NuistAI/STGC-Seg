@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.idea/
+
+lib/
+data/
+save_model/
+outputs/
+logs/
+*.ckpt
+*.pt
+*.pth
+*.npy
+*.npz

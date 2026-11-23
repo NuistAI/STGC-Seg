@@ -1,0 +1,43 @@
+experiment_name: MedicalSAM3-MDAA-Full-QaTa
+dataset: QaTa-COV19
+strategy: mdaa_full
+prompt_adapter: true
+output_dir: /home/Disk2/gx2025/实验2/实验/SAM/MedicalSAM3_hierarchical_adapter/checkpoints/mdaa_full
+result_dir: /home/Disk2/gx2025/实验2/实验/SAM/MedicalSAM3_hierarchical_adapter/results/mdaa_full
+pretrained_checkpoint: /home/Disk4toCheckpoint/gx/Medical-SAM3-main/checkpoint/checkpoint.pt
+adapter:
+  hierarchical_adapter: true
+  learnable_residual_scale: true
+  spatial_layers: 16
+  adapter_policy: all
+  adapter_mlp_ratio: 0.25
+  attn_adapter_scale: 1.0
+  mlp_adapter_scale: 0.5
+training:
+  seed: 0
+  batch_size: 12
+  num_workers: 1
+  epochs: 200
+  early_stopping_patience: 30
+  optimizer: AdamW
+  learning_rate: 0.0001
+  lr_schedule: constant
+  weight_decay: 0.05
+  gradient_clip_norm: 0.1
+  image_size: 1008
+  labeled_ratio: 0.04
+  paper_labeled_setting: 5%
+  amp: bfloat16
+data:
+  train:
+    image_dir: /home/Disk3toData/DATAVLM/QaTa-COV19-ori/QaTa-COV19/QaTa-COV19-v2/Train Set/Images
+    mask_dir: /home/Disk3toData/DATAVLM/QaTa-COV19-ori/QaTa-COV19/QaTa-COV19-v2/Train Set/GTs
+    csv_path: /home/Disk3toData/DATAVLM/QaTa-COV19-ori/QaTa-COV19/QaTa-COV19-v2/prompt/Train.csv
+  val:
+    image_dir: /home/Disk3toData/DATAVLM/QaTa-COV19-ori/QaTa-COV19/QaTa-COV19-v2/Val Set/Images
+    mask_dir: /home/Disk3toData/DATAVLM/QaTa-COV19-ori/QaTa-COV19/QaTa-COV19-v2/Val Set/GTs
+    csv_path: /home/Disk3toData/DATAVLM/QaTa-COV19-ori/QaTa-COV19/QaTa-COV19-v2/prompt/Val.csv
+  test:
+    image_dir: /home/Disk3toData/DATAVLM/QaTa-COV19-ori/QaTa-COV19/QaTa-COV19-v2/Test Set/Images
+    mask_dir: /home/Disk3toData/DATAVLM/QaTa-COV19-ori/QaTa-COV19/QaTa-COV19-v2/Test Set/GTs
+    csv_path: /home/Disk3toData/DATAVLM/QaTa-COV19-ori/QaTa-COV19/QaTa-COV19-v2/prompt/Test.csv

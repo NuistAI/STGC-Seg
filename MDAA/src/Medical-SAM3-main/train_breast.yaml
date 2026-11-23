@@ -1,0 +1,25 @@
+
+TRAIN:
+  seed: 0
+  train_batch_size: 12
+  valid_batch_size: 8
+  test_batch_size: 8
+  max_epochs: 200
+  early_stopping_epochs: 30
+  learning_rate: 0.0001
+  labeled_ratio: 0.1
+  image_size: [1008, 1008]
+
+MODEL:
+  checkpoint_path: checkpoint/checkpoint.pt
+  context_length: 32
+
+DATA:
+  train_csv_path: /home/Disk4toCheckpoint/gx/DATA/BrEaST-Lesions_USG-images_and_masks/BrEaST_Lesions_USG_English_Reports_3cols.xlsx
+  train_root_path: /home/Disk4toCheckpoint/gx/DATA/BrEaST-Lesions_USG-images_and_masks/BrEaST-Lesions_USG-images_and_masks
+
+  valid_csv_path: /home/Disk4toCheckpoint/gx/DATA/BrEaST-Lesions_USG-images_and_masks/BrEaST_Lesions_USG_English_Reports_3cols.xlsx
+  valid_root_path: /home/Disk4toCheckpoint/gx/DATA/BrEaST-Lesions_USG-images_and_masks/BrEaST-Lesions_USG-images_and_masks
+
+  test_csv_path: /home/Disk4toCheckpoint/gx/DATA/BrEaST-Lesions_USG-images_and_masks/BrEaST_Lesions_USG_English_Reports_3cols.xlsx
+  test_root_path: /home/Disk4toCheckpoint/gx/DATA/BrEaST-Lesions_USG-images_and_masks/BrEaST-Lesions_USG-images_and_masks
