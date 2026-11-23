@@ -88,21 +88,6 @@ Test Set/
 
 Each training CSV needs an `Image` column and a diagnostic-text column. The segmentation configs use `Description` for QaTa-COV19 and `text` for MosMedData+. For example, an `Image` entry of `mask_case_0001.png` maps to `Images/case_0001.png` and `GTs/mask_case_0001.png`. Masks can use values of 0 and 1 or 0 and 255. The segmentation stage resizes images and masks to 224 × 224.
 
-### CSV splits and labeled fractions
-
-The default loader uses ordered CSV rows. It holds out the last 20% of `Train.csv` for validation and selects labeled samples from the beginning of the remaining training pool. `labeled_ratio` uses the row count before the validation split as its denominator. The settings below apply to the default 80/20 split.
-
-| Target labeled fraction of the training pool | `labeled_ratio` |
-|---:|---:|
-| 5% | `0.04` |
-| 10% | `0.08` |
-| 15% | `0.12` |
-| 20% | `0.16` |
-| 25% | `0.20` |
-| 50% | `0.40` |
-
-To match a manuscript experiment, use its exact sample lists and verify the training, validation, test, and labeled subsets produced by the loader. The default CSV slicing is a loader convention. Check that the chosen `valid_ratio` and CSV ordering reproduce the intended boundary for the dataset.
-
 ## 3. Training priors
 
 Prepare an initial TSL CAM and a frozen MDAA-adapted Medical SAM3 mask for each training sample required by the configuration. Strict loading also requires the configured priors for validation rows read from the same training CSV.
